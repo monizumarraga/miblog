@@ -1,0 +1,9 @@
+<%= link_to 'Home', root_path %>
+<%= link_to 'Contacto', 
+	{:controller => 'estaticas',
+	:action => 'contacto',
+	:id => 3,
+	:pagina => 2},
+	:class => 'my-class',
+	:target => '_blank' %>
+<%= link_to 'Nosotros', estaticas_nosotros_path %>

@@ -1,0 +1,16 @@
+<% provide(:titulo, "Nosotros") %>
+
+<h1>Estaticas#nosotros</h1>
+<p>Find me in app/views/estaticas/nosotros.html.erb</p>
+
+<%= @mensaje %>
+<br>
+
+<%= "El controlador dice: #{@mensaje}" %>
+
+<ul>
+	<% @usuarios.each do |i| %>
+		<%= "<li> #{i} </li>".html_safe %>
+	<% end %>
+</ul>
+
