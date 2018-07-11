@@ -5,3 +5,5 @@
 	<p><small><%= art.created_at.strftime("%d-%m-%Y") %></small></p>
 	<p><%= art.contenido.truncate_words(30) %></p>
 <% end %>
+
+<%= will_paginate @articulo %>

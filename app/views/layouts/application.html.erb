@@ -11,14 +11,16 @@
 
   <body>
     <%= render 'shared/header' %>
-    <ul>
-      <% flash.each do |key, value| %>
-        <li><&= value %></li>
-      <% end %>
-    </ul>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div class="container">
+      <% if !flash.empty? %>
+        <div clas='alert alert-info'>
+        <ul>
+          <% flash.each do |key, value| %>
+            <li><%= value %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
       <%= yield %>
     </div>
   </body>

@@ -4,7 +4,7 @@ class ArticulosController < ApplicationController
   before_action :correct_autor, only: [:edit, :update, :destroy]
 
   def index
-  	@articulo=Articulo.all.order("created_at DESC")
+  	@articulo=Articulo.all.order("created_at DESC").paginate(page: params[:page], :per_page =>2)
   end
 
   def new
@@ -29,8 +29,8 @@ class ArticulosController < ApplicationController
 
   def update
   	@articulo=Articulo.find(params[:id])
-  	if @articulo.update(ariculo_params)
-  		flasd[:notice]="Articulo editado correctamente"
+  	if @articulo.update(articulo_params)
+  		flash[:notice]="Articulo editado correctamente"
   		redirect_to @articulo
   	else
   		render 'edit'
