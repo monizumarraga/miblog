@@ -1,16 +1,19 @@
-<%= form_with([@articulo, @articulo.comentarios.build]) do |form| %>
-  
-  <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre %>
-  </div>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for([@articulo, @articulo.comentarios.build]) do |form| %>
+        <div class="form-group">
+          <%= form.label :nombre %>
+          <%= form.text_field :nombre, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :texto %>
+          <%= form.text_area :texto, class: 'form-control' %>
+        </div>
 
-  <div class="field">
-    <%= form.label :texto %>
-    <%= form.text_area :texto %>
+      <div class="actions">
+        <%= form.submit "Publicar", class:'btn btn-primary' %>
+      </div>
+    <% end %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

@@ -1,4 +1,4 @@
-class CreateArticulos < ActiveRecord::Migration[5.2]
+class Articulos < ActiveRecord::Migration[5.2]
   def change
     create_table :articulos do |t|
       t.string :titulo

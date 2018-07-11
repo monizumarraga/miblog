@@ -2,8 +2,10 @@
 <p>Creado el <%= @articulo.created_at.strftime ("%d-%m-%Y") %></p>
 <p><%= @articulo.contenido %></p>
 
+<% if autor_signed_in? %>
 <%= link_to "Editar", edit_articulo_path(@articulo) %>
 <%= link_to "Eliminar", @articulo, :method => :delete, data: {confirm: "¿Seguro que deseas borrar el articulo?"} %>
+<% end %>
 
 <p><%= @articulo.comentarios.count %> Comentarios </p>
 <%= render @articulo.comentarios %>

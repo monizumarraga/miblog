@@ -1,20 +1,29 @@
-<%= form_for @articulo do |f| %>
-	<% if @articulo.errors.any? %>
-	<div id="errors">
-		<h2>Se han producido los siguientes errores: </h2>
-		<ul>
-			<% @articulo.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
+<div class="row">
+	<div class="col-md-6">
+		<%= form_for @articulo do |f| %>
+			<% if @articulo.errors.any? %>
+			<div id="errors">
+				<h2>Se han producido los siguientes errores: </h2>
+				<ul>
+					<% @articulo.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
 			<% end %>
-		</ul>
+			<div class="form-group">
+				<%= f.label :titulo %> <br>
+				<%= f.text_field :titulo, class: 'form-control' %> <br>
+			</div>
+			<div class="form-group">
+				<%= f.label :contenido %> <br>
+				<%= f.text_area :contenido, class: 'form-control' %> <br>
+			</div>
+			<%= f.submit "#{@boton} articulo", class:'btn btn-primary' %>
+		<% end %>
 	</div>
-	<% end %>
+</div>
 
-	<%= f.label :titulo %> <br>
-	<%= f.text_field :titulo %> <br>
 
-	<%= f.label :contenido %> <br>
-	<%= f.text_area :contenido %> <br>
 
-	<%= f.submit "#{@boton} articulo" %>
-<% end %>
+

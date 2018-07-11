@@ -1,16 +1,16 @@
 class ComentariosController < ApplicationController
-  before_action :set_articulo, only [:create, :destroy]
+  before_action :set_articulo, only: [:create, :destroy]
 
   def create
     @comentario = @articulo.comentarios.create(comentario_params)
 
-    redirect_to post_path(@articulo)
+    redirect_to @articulo
   end
 
   # DELETE /comentarios/1
   # DELETE /comentarios/1.json
   def destroy
-    @comentario = @articulo.comentarios.find(param[:id])
+    @comentario = @articulo.comentarios.find(params[:id])
     @comentario.destroy
 
     redirect_to @articulo
